@@ -1,0 +1,22 @@
+{
+  "materials": [
+    {
+      "name"    : "macbook",
+      "element" : "pictuire",
+      "url"     : "http://i.gzn.jp/img/2009/11/27/macbookair/macbookair00.jpg",
+      "top"      : 77,
+      "left"      : 38,
+      "width"      : 509,
+      "height"      : 350
+    },
+    {
+      "name"    : "book",
+      "element" : "pictuire",
+      "url"     : "http://www.appgaku.com/iphone-pickup/assets_c/2013/04/sp_0402_ino_1-thumb-600x401-5293.jpg",
+      "top"      : 519,
+      "left"      : 410,
+      "width"      : 630,
+      "height"      : 173
+    }
+  ]
+}

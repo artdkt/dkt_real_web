@@ -1,4 +1,8 @@
 {
+  "deskSize" : {
+    "width":  "1320",
+    "height":" 900"
+  },
   "materials": [
     {
       "name"    : "macbook",

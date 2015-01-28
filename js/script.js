@@ -1,4 +1,4 @@
-$(function(){
+$(function() {
 	var ww = $("#content").width();
 	var wh = $("#content").height();
 	var paper = Raphael("content", ww, wh);
@@ -10,7 +10,7 @@ $(function(){
 
 
 	/*--- 描画 ---*/
-	function draw(){
+	function draw() {
 		if(!materials) return;
 
 		paper.clear();
@@ -31,13 +31,13 @@ $(function(){
 				// console.log("out")
 			}).mouseup(function(e) {
 				location.href = e.toElement.id;
-			})
+			});
 		}
 	}
 
 
 	/*--- リサイズ処理 ---*/
-	function windowResizeHandler(){
+	function windowResizeHandler() {
 		ww = $("#content").width();
 		wh = $("#content").height();
 		

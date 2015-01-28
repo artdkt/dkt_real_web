@@ -2,9 +2,11 @@ var DKTHandler = function() {
   var self = this;
   self.call;
   
+
   function init() {
     self.fetch();
   }
+
   
   self.fetch = function() {
     $.ajax({
@@ -23,6 +25,7 @@ var DKTHandler = function() {
     });
   }
 
+
   self.listen = function(call, msec) {
     self.call = call;
 
@@ -30,6 +33,7 @@ var DKTHandler = function() {
       self.fetch();
     } , msec);
   }
+
 
   init();
 };

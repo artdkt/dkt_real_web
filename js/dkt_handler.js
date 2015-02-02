@@ -20,7 +20,7 @@ var DKTHandler = function() {
         self.datas = {status: "error"};
       },
       complete: function(){
-        self.call(self.datas.materials);
+        self.call(self.datas);
       }
     });
   }

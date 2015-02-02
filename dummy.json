@@ -1,26 +1,26 @@
 {
   "deskSize" : {
-    "width":  "1320",
-    "height":" 900"
+    "width":  "3670",
+    "height":" 2462"
   },
   "materials": [
     {
       "name"    : "macbook",
       "element" : "pictuire",
       "url"     : "http://i.gzn.jp/img/2009/11/27/macbookair/macbookair00.jpg",
-      "top"      : 77,
-      "left"      : 38,
-      "width"      : 509,
-      "height"      : 350
+      "coordinates" : [[179,92],[1600,92],[1600,1046],[179,1046]]
     },
     {
       "name"    : "book",
       "element" : "pictuire",
       "url"     : "http://www.appgaku.com/iphone-pickup/assets_c/2013/04/sp_0402_ino_1-thumb-600x401-5293.jpg",
-      "top"      : 519,
-      "left"      : 410,
-      "width"      : 630,
-      "height"      : 173
+      "coordinates" : [[1400,1112],[3154,1112],[3154,1652],[1400,1652]]
+    },
+    {
+      "name"    : "diagram",
+      "element" : "pictuire",
+      "url"     : "http://ja.wikipedia.org/wiki/ブロック図",
+      "coordinates" : [[974,1712],[1070,1817],[1004,1949],[899,1850]]
     }
   ]
 }

@@ -3,27 +3,39 @@ $(function() {
 	var wh = $("#content").height();
 	var paper = Raphael("content", ww, wh);
 
-	var deskWidth = 1320;
-	var deskHeight = 900;
+	var deskWidth;
+	var deskHeight;
 	var ratio;
-	var materials = null;
+	var desk = null;
 
 
 	/*--- 描画 ---*/
 	function draw() {
-		if(!materials) return;
+		if(!desk) return;
+
+		deskWidth = desk.deskSize.width;
+		deskHeight = desk.deskSize.height;
 
 		paper.clear();
 
-		for(var i = 0; i < materials.length; i ++) {
-			var data = materials[i];
-		
-			var obj = paper.rect(data.top*ratio, data.left*ratio, data.width*ratio, data.height*ratio).attr({
+		for(var i = 0; i < desk.materials.length; i ++) {
+			var material = desk.materials[i];
+
+			var coordinates = material.coordinates;
+			var pathString = "";
+			for(var n=0; n<coordinates.length; n++){
+				pathString += (n==0) ? "M" : "L";
+				pathString += (coordinates[n][0]*ratio)+","+(coordinates[n][1]*ratio);
+			}
+			pathString += "L"+(coordinates[0][0]*ratio)+","+(coordinates[0][1]*ratio);
+
+
+			var obj = paper.path(pathString).attr({
 				fill: "red",
 				'fill-opacity': 0,
 				cursor: 'pointer'
 			});
-			obj.node.id = data.url; 
+			obj.node.id = material.url; 
 
 			obj.mouseover(function(e) {
 				// console.log("over")
@@ -56,10 +68,7 @@ $(function() {
 	/*--- DKTリスナ設定 ---*/
 	var handler = new DKTHandler();
 	handler.listen(function(datas) {
-		materials = [];
-		for(var i = 0; i < datas.length; i ++) {
-			materials[i] = datas[i];
-		}
+		desk = datas;
 		draw();
 	}, 10000);
 });

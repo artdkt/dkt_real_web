@@ -1,25 +1,36 @@
-$(function() {
-	var ww = $("#content").width();
-	var wh = $("#content").height();
-	var paper = Raphael("content", ww, wh);
-
-	var deskWidth;
-	var deskHeight;
-	var ratio;
-	var desk = null;
+var DKTDesk = function() {
+	var self = this;
+	self.paper;
+	self.deskWidth;
+	self.deskHeight;
+	self.materials;
 
 
-	/*--- 描画 ---*/
-	function draw() {
-		if(!desk) return;
+	function init(){
+		self.paper = Raphael("content", $("#content").width(), $("#content").height());
+	}
 
-		deskWidth = desk.deskSize.width;
-		deskHeight = desk.deskSize.height;
 
-		paper.clear();
+	self.update = function(datas){
+		self.deskWidth  = datas.deskSize.width;
+		self.deskHeight = datas.deskSize.height;
+		self.materials = datas.materials;
+		self.draw();
+	}
 
-		for(var i = 0; i < desk.materials.length; i ++) {
-			var material = desk.materials[i];
+
+	self.draw = function(){
+		if(!self.deskWidth || !self.deskHeight || !self.materials) return;
+
+		var ww = $("#content").width();
+		var wh = $("#content").height();
+		var ratio = Math.max(ww/self.deskWidth, wh/self.deskHeight);
+
+		self.paper.clear();
+		self.paper.setSize(ww, wh);
+
+		for(var i = 0; i < self.materials.length; i ++) {
+			var material = self.materials[i];
 
 			var coordinates = material.coordinates;
 			var pathString = "";
@@ -29,8 +40,7 @@ $(function() {
 			}
 			pathString += "L"+(coordinates[0][0]*ratio)+","+(coordinates[0][1]*ratio);
 
-
-			var obj = paper.path(pathString).attr({
+			var obj = self.paper.path(pathString).attr({
 				fill: "red",
 				'fill-opacity': 0,
 				cursor: 'pointer'
@@ -48,27 +58,17 @@ $(function() {
 	}
 
 
-	/*--- リサイズ処理 ---*/
-	function windowResizeHandler() {
-		ww = $("#content").width();
-		wh = $("#content").height();
-		
-		ratio = Math.max(ww/deskWidth, wh/deskHeight);
-
-		paper.setSize(ww, wh);
-		draw();
-	}
+	init();
+};
 
 
-	/*--- リサイズハンドラバインド ---*/
-	$(window).on("resize", windowResizeHandler);
-	windowResizeHandler();
-
+$(function() {
+	var desk = new DKTDesk();
+	var handler = new DKTHandler();
 
 	/*--- DKTリスナ設定 ---*/
-	var handler = new DKTHandler();
-	handler.listen(function(datas) {
-		desk = datas;
-		draw();
-	}, 10000);
+	handler.listen(desk.update, 1000);
+
+	/*--- リサイズハンドラバインド ---*/
+	$(window).on("resize", desk.draw);
 });

@@ -43,7 +43,8 @@ var DKTDesk = function() {
 			var obj = self.paper.path(pathString).attr({
 				fill: "red",
 				'fill-opacity': 0,
-				cursor: 'pointer'
+				cursor: 'pointer',
+				stroke: "none"
 			});
 
 			obj.node.id = material.url; 
@@ -68,7 +69,7 @@ $(function() {
 	var handler = new DKTHandler();
 
 	/*--- DKTリスナ設定 ---*/
-	handler.listen(desk.update, 1000);
+	handler.listen(desk.update, 10000);
 
 	/*--- リサイズハンドラバインド ---*/
 	$(window).on("resize", desk.draw);

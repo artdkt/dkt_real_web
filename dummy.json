@@ -1,26 +1,26 @@
 {
   "deskSize" : {
-    "width":  "3670",
-    "height":" 2462"
+    "width":  "2592",
+    "height":" 1728"
   },
   "materials": [
     {
-      "name"    : "macbook",
+      "name"    : "ipad",
       "element" : "pictuire",
-      "url"     : "http://i.gzn.jp/img/2009/11/27/macbookair/macbookair00.jpg",
-      "coordinates" : [[179,92],[1600,92],[1600,1046],[179,1046]]
+      "url"     : "articles.html",
+      "coordinates" : [[912, 238], [1296,168], [1356, 472], [968, 538]]
     },
     {
-      "name"    : "book",
+      "name"    : "text",
       "element" : "pictuire",
-      "url"     : "http://www.appgaku.com/iphone-pickup/assets_c/2013/04/sp_0402_ino_1-thumb-600x401-5293.jpg",
-      "coordinates" : [[1400,1112],[3154,1112],[3154,1652],[1400,1652]]
+      "url"     : "http://41.media.tumblr.com/c404c50a64cd33c2c424cf5c340d1056/tumblr_ngpfudGYZg1tl6xelo1_1280.jpg",
+      "coordinates" : [[6, 344], [66, 772], [380, 708], [320, 292]]
     },
     {
-      "name"    : "diagram",
+      "name"    : "display",
       "element" : "pictuire",
-      "url"     : "http://ja.wikipedia.org/wiki/ブロック図",
-      "coordinates" : [[974,1712],[1070,1817],[1004,1949],[899,1850]]
+      "url"     : "http://36.media.tumblr.com/c60112dfcc79d2142b1173446bac0e40/tumblr_ndhp8eklYq1tl6xelo1_1280.png",
+      "coordinates" : [[4, 966], [776, 818], [796, 846], [896, 830], [898, 860], [810, 906], [4, 1060]]
     }
   ]
 }
